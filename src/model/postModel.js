@@ -121,7 +121,7 @@ const getPostById = async (id) => {
       console.log('Model: search and sort post by user', data);
       const { sortby, sort, offset, limit, reg_id } = data;
       pool.query(
-        `SELECT post.id, post.title, post.article, post.pic, post.reg_id, post.pic_id, post.created_at, reg.username, reg.photo FROM post LEFT JOIN reg ON reg.id = post.reg_id WHERE post.reg_id = ${reg_id} ORDER BY ${sortby} ${sort} OFFSET ${offset} LIMIT ${limit}`,
+        `SELECT post.id, post.title, post.article, post.pic, post.reg_id, post.pic_id, post.created_at, post.post_pass, reg.username, reg.photo FROM post LEFT JOIN reg ON reg.id = post.reg_id WHERE post.reg_id = ${reg_id} ORDER BY ${sortby} ${sort} OFFSET ${offset} LIMIT ${limit}`,
         (err, results) => {
           if (!err) {
             resolve(results);

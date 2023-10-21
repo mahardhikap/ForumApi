@@ -11,6 +11,7 @@ const {
 } = require('../model/postModel');
 const {getUserById} = require('../model/userModel')
 const cloudinary = require('../config/cloudinary');
+const {hashPassword} = require('../middleware/bcrypt')
 
 const postController = {
     addArticle: async (req, res) => {
@@ -24,7 +25,7 @@ const postController = {
             let post = {
               title: title,
               article: article,
-              post_pass: post_pass || '',
+              post_pass: await hashPassword(post_pass) || '',
               reg_id
             }
 
