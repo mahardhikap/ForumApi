@@ -34,7 +34,7 @@ const checkEmail = async (email) => {
 const getUserById = async (id) => {
   return new Promise((resolve, reject) => {
     console.log('Model: get user by id', id);
-    pool.query(`SELECT * FROM reg WHERE id = ${id}`, (err, results) => {
+    pool.query(`SELECT * FROM reg WHERE id = '${id}'`, (err, results) => {
       if (!err) {
         resolve(results);
       } else {
@@ -62,7 +62,7 @@ const putUserById = async (post) => {
     console.log('Model: edit user', post);
     const { username, email, password, photo, photo_id, id } = post;
     pool.query(
-      `UPDATE reg SET username = '${username}', email = '${email}', password = '${password}', photo = '${photo}', photo_id = '${photo_id}' WHERE id = ${id} RETURNING *`,
+      `UPDATE reg SET username = '${username}', email = '${email}', password = '${password}', photo = '${photo}', photo_id = '${photo_id}' WHERE id = '${id}' RETURNING *`,
       (err, results) => {
         if (!err) {
           resolve(results);
@@ -78,7 +78,7 @@ const delUserById = async (id) => {
   return new Promise((resolve, reject) => {
     console.log('Model: delete user');
     pool.query(
-      `DELETE FROM reg WHERE id = ${id} RETURNING *`,
+      `DELETE FROM reg WHERE id = '${id}' RETURNING *`,
       (err, results) => {
         if (!err) {
           resolve(results);

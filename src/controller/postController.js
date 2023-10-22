@@ -25,8 +25,11 @@ const postController = {
             let post = {
               title: title,
               article: article,
-              post_pass: await hashPassword(post_pass) || '',
               reg_id
+            }
+
+            if (post_pass) {
+              post.post_pass = await hashPassword(post_pass);
             }
 
             if (req.file) {
@@ -103,12 +106,12 @@ const postController = {
       try {
         const { searchby, search, sortby, sort, limit } = req.query;
         let page = parseInt(req.query.page) || 1;
-        let limiter = limit || 5;
+        let limiter = parseInt(limit) || 5;
   
         const post = {
           sortby: sortby || 'created_at',
           sort: sort || 'ASC',
-          limit: limit || 5,
+          limit: parseInt(limit) || 5,
           offset: (page - 1) * limiter,
           searchby: searchby || 'title',
           search: search,
@@ -162,8 +165,14 @@ const postController = {
           id: id,
           title: title || data.rows[0].title,
           article: article || data.rows[0].article,
-          post_pass: post_pass,
+          // post_pass: post_pass || data.rows[0].post_pass
         };
+
+        if (post_pass) {
+          post.post_pass = await hashPassword(post_pass);
+        } else {
+          post.post_pass = undefined;
+        }
   
         if (result_up) {
           // Jika gambar baru diupload, update properti photo
