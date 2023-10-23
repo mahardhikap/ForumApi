@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "d752f042-8f3f-4e3e-abc0-45fb331de0ea",
+		"name": "Forum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26438294"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseurl}}/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseurl}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_online}}/user/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Payload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYWhhcmRoaWthIiwiZW1haWwiOiJwdXRyYWQ1NzhAZ21haWwuY29tIiwicm9sZXMiOiJtZW1iZXIiLCJwaG90byI6Imh0dHBzOi8vaS5pYmIuY28vTTJKU1JtVy9ub2ltYWdlLnBuZyIsInBob3RvX2lkIjoibm9faWQiLCJpc19hY3RpdmUiOnRydWUsInZhbGlkYXRlIjoiMjg0NTI0IiwiY3JlYXRlZF9hdCI6IjIwMjMtMTAtMTVUMDY6NTg6MTMuMTQ3WiIsImlhdCI6MTY5NzM1NDI3Mn0.j9zWyDAWULH2eyoil2wnPn-5KAIIuKZ6I10YDE2Oc8c"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "All User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/member"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYWhhcmRoaWthIiwiZW1haWwiOiJwdXRyYWQ1NzhAZ21haWwuY29tIiwicm9sZXMiOiJtZW1iZXIiLCJwaG90byI6Imh0dHBzOi8vaS5pYmIuY28vTTJKU1JtVy9ub2ltYWdlLnBuZyIsInBob3RvX2lkIjoibm9faWQiLCJpc19hY3RpdmUiOnRydWUsInZhbGlkYXRlIjoiMjg0NTI0IiwiY3JlYXRlZF9hdCI6IjIwMjMtMTAtMTVUMDY6NTg6MTMuMTQ3WiIsImlhdCI6MTY5NzM1NDI3Mn0.j9zWyDAWULH2eyoil2wnPn-5KAIIuKZ6I10YDE2Oc8c"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "name",
+									"description": "change name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"description": "change email",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"description": "change password",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"description": "photo profile",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{baseurl}}/updateprofile"
+					},
+					"response": []
+				},
+				{
+					"name": "Activate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/activate/d6932cf4-8981-4819-83e5-52c51cea7d6e"
+					},
+					"response": []
+				},
+				{
+					"name": "Send OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseurl}}/otp/ledowo4561@dixiser.com"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "okaygoo",
+									"description": "new password",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@gmail.com",
+									"description": "your email",
+									"type": "text"
+								},
+								{
+									"key": "validate",
+									"value": "d6932cf4-8981-4819-83e5-52c51cea7d6e",
+									"description": "your validate code",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseurl}}/changepassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJEb3NpIiwiZW1haWwiOiJkb3Npdjg2OTgxQGN6aWxvdS5jb20iLCJyb2xlcyI6Im1lbWJlciIsInBob3RvIjoiaHR0cHM6Ly9pLmliYi5jby9NMkpTUm1XL25vaW1hZ2UucG5nIiwicGhvdG9faWQiOiJub19pZCIsImlzX2FjdGl2ZSI6dHJ1ZSwidmFsaWRhdGUiOiI5ODU5NDQiLCJjcmVhdGVkX2F0IjoiMjAyMy0xMC0xNVQxMDoxNToxOC4wNDBaIiwiaWF0IjoxNjk3Mzg0MTQwfQ._FJDOfSaUtAmizz1YD1COkI94WgPShh2y9E3xcioFZA"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseurl}}/userdelete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Post Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlNWY4MjhkLTYyNzYtNGQ1OC05OWY4LTJhNjI5MDdjMmQyZiIsInVzZXJuYW1lIjoiTWFoYXJkaGlrYSIsImVtYWlsIjoicHV0cmFkNTc4QGdtYWlsLmNvbSIsInJvbGVzIjoibWVtYmVyIiwicGhvdG8iOiJodHRwczovL2kuaWJiLmNvL00ySlNSbVcvbm9pbWFnZS5wbmciLCJwaG90b19pZCI6Im5vX2lkIiwiaXNfYWN0aXZlIjp0cnVlLCJ2YWxpZGF0ZSI6IjU5MzQ0MzFkLTZhNzEtNGVkYy1iNzFmLTc2MWQ3Y2U2ZTlmNyIsImNyZWF0ZWRfYXQiOiIyMDIzLTEwLTIxVDA2OjI2OjA0LjM2N1oiLCJpYXQiOjE2OTc4ODY4OTB9.HZuuC-mPPEYr9B210TMC9Fd6_TOuC0OEXQDCBtSoSL0"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Article First",
+									"description": "title article",
+									"type": "text"
+								},
+								{
+									"key": "article",
+									"value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, maxime aliquid aspernatur numquam officiis maiores. Natus excepturi, voluptatem dolore, a esse sapiente, corporis laborum voluptatibus eligendi magnam quisquam alias eveniet. Ut porro illum recusandae. Commodi, a! Fugiat voluptatibus repellendus in expedita fuga quo beatae deserunt. Maxime iusto quisquam obcaecati reiciendis, eum deleniti ratione doloribus pariatur. Non provident earum labore perspiciatis? Iure iusto quis doloribus, animi ipsum, eius saepe voluptatum vitae id delectus dolores doloremque dignissimos quisquam repellat culpa quibusdam vero sunt sit. Officia aspernatur qui facilis iste repellat maxime magni?",
+									"description": "main article post",
+									"type": "text"
+								},
+								{
+									"key": "post_pass",
+									"value": "",
+									"description": "password article/ you can emptythis space",
+									"type": "text"
+								},
+								{
+									"key": "pic",
+									"description": "add image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{baseurl}}/addpost"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/allpost"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/post/55b5f37e-8118-4ac0-9395-e4c91d329e77"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Search Sort Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/sort?searchby=title&search=How to learn Javascript&sortby=created_at&sort=ASC&page=1&limit=4",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"sort"
+							],
+							"query": [
+								{
+									"key": "searchby",
+									"value": "title",
+									"description": "you want find (filter by)"
+								},
+								{
+									"key": "search",
+									"value": "How to learn Javascript",
+									"description": "what you want to search"
+								},
+								{
+									"key": "sortby",
+									"value": "created_at",
+									"description": "filter sort"
+								},
+								{
+									"key": "sort",
+									"value": "ASC",
+									"description": "sort ascending"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "where page"
+								},
+								{
+									"key": "limit",
+									"value": "4",
+									"description": "what amount data show in one page"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlNWY4MjhkLTYyNzYtNGQ1OC05OWY4LTJhNjI5MDdjMmQyZiIsInVzZXJuYW1lIjoiTWFoYXJkaGlrYSIsImVtYWlsIjoicHV0cmFkNTc4QGdtYWlsLmNvbSIsInJvbGVzIjoibWVtYmVyIiwicGhvdG8iOiJodHRwczovL2kuaWJiLmNvL00ySlNSbVcvbm9pbWFnZS5wbmciLCJwaG90b19pZCI6Im5vX2lkIiwiaXNfYWN0aXZlIjp0cnVlLCJ2YWxpZGF0ZSI6IjU5MzQ0MzFkLTZhNzEtNGVkYy1iNzFmLTc2MWQ3Y2U2ZTlmNyIsImNyZWF0ZWRfYXQiOiIyMDIzLTEwLTIxVDA2OjI2OjA0LjM2N1oiLCJpYXQiOjE2OTc4ODY4OTB9.HZuuC-mPPEYr9B210TMC9Fd6_TOuC0OEXQDCBtSoSL0"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "This is how to",
+									"description": "Change title article",
+									"type": "text"
+								},
+								{
+									"key": "article",
+									"value": "Lorem ipsum dolor sit amet",
+									"description": "Change main post article",
+									"type": "text"
+								},
+								{
+									"key": "post_pass",
+									"value": "",
+									"description": "change password article / empty",
+									"type": "text"
+								},
+								{
+									"key": "pic",
+									"description": "change article image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{baseurl}}/updatepost/301706b6-d267-4ceb-980f-f972259f7436"
+					},
+					"response": []
+				},
+				{
+					"name": "All Post User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlNWY4MjhkLTYyNzYtNGQ1OC05OWY4LTJhNjI5MDdjMmQyZiIsInVzZXJuYW1lIjoiTWFoYXJkaGlrYSIsImVtYWlsIjoicHV0cmFkNTc4QGdtYWlsLmNvbSIsInJvbGVzIjoibWVtYmVyIiwicGhvdG8iOiJodHRwczovL2kuaWJiLmNvL00ySlNSbVcvbm9pbWFnZS5wbmciLCJwaG90b19pZCI6Im5vX2lkIiwiaXNfYWN0aXZlIjp0cnVlLCJ2YWxpZGF0ZSI6IjU5MzQ0MzFkLTZhNzEtNGVkYy1iNzFmLTc2MWQ3Y2U2ZTlmNyIsImNyZWF0ZWRfYXQiOiIyMDIzLTEwLTIxVDA2OjI2OjA0LjM2N1oiLCJpYXQiOjE2OTc4NzAwNzB9.t-GBRKNCb_hBKfJlIQjZSHdU-Zhrnrd-lVvDQ4eWpdY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/userpost?sortby=created_at&sort=ASC&page=1&limit=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"userpost"
+							],
+							"query": [
+								{
+									"key": "sortby",
+									"value": "created_at"
+								},
+								{
+									"key": "sort",
+									"value": "ASC"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZlNWY4MjhkLTYyNzYtNGQ1OC05OWY4LTJhNjI5MDdjMmQyZiIsInVzZXJuYW1lIjoiTWFoYXJkaGlrYSIsImVtYWlsIjoicHV0cmFkNTc4QGdtYWlsLmNvbSIsInJvbGVzIjoibWVtYmVyIiwicGhvdG8iOiJodHRwczovL2kuaWJiLmNvL00ySlNSbVcvbm9pbWFnZS5wbmciLCJwaG90b19pZCI6Im5vX2lkIiwiaXNfYWN0aXZlIjp0cnVlLCJ2YWxpZGF0ZSI6IjU5MzQ0MzFkLTZhNzEtNGVkYy1iNzFmLTc2MWQ3Y2U2ZTlmNyIsImNyZWF0ZWRfYXQiOiIyMDIzLTEwLTIxVDA2OjI2OjA0LjM2N1oiLCJpYXQiOjE2OTc4ODY4OTB9.HZuuC-mPPEYr9B210TMC9Fd6_TOuC0OEXQDCBtSoSL0"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseurl}}/deletepost/4c403dea-475f-43e8-8b2e-d13155c08f31"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:3001"
+		},
+		{
+			"key": "base_online",
+			"value": "https://frm.codeinsomnia.com"
+		}
+	]
+}
