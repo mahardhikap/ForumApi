@@ -27,15 +27,17 @@ CREATE TABLE post (
     FOREIGN KEY (reg_id) REFERENCES reg(id) ON DELETE CASCADE
 );
 
-CREATE OR REPLACE FUNCTION update_created_at()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.created_at = NOW();
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
+-- if you want to change date when data is updated
 
-CREATE TRIGGER post_update_created_at
-BEFORE INSERT OR UPDATE ON post
-FOR EACH ROW
-EXECUTE FUNCTION update_created_at();
+-- CREATE OR REPLACE FUNCTION update_created_at()
+-- RETURNS TRIGGER AS $$
+-- BEGIN
+--     NEW.created_at = NOW();
+--     RETURN NEW;
+-- END;
+-- $$ LANGUAGE plpgsql;
+
+-- CREATE TRIGGER post_update_created_at
+-- BEFORE INSERT OR UPDATE ON post
+-- FOR EACH ROW
+-- EXECUTE FUNCTION update_created_at();
