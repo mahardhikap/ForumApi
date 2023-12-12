@@ -18,7 +18,7 @@ const protect = async (req,res,next) => {
     next()
     } catch(error){
         console.error('Token input is wrong or not valid', error.message)
-        return res.status(404).json({"status":404, "message": "Need valid token!"})
+        return res.status(403).json({"status":403, "message": "Need valid token!"})
     }
 
 }

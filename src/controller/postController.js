@@ -9,7 +9,6 @@ const {
   getSortPostByUser,
   delPostById,
 } = require('../model/postModel');
-const {getUserById} = require('../model/userModel')
 const cloudinary = require('../config/cloudinary');
 const {hashPassword} = require('../middleware/bcrypt')
 

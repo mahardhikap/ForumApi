@@ -8,6 +8,8 @@ const cors = require('./src/middleware/cors')
 const xss = require('xss-clean')
 const user = require('./src/router/userRouter')
 const post = require('./src/router/postRouter')
+const biodata = require('./src/router/biodataRouter')
+const portfolio = require('./src/router/portoRouter')
 
 app.use(bodyParser.json());
 app.use(
@@ -27,6 +29,8 @@ app.get('/', (req, res) => {
 
 app.use(user)
 app.use(post)
+app.use(biodata)
+app.use(portfolio)
 
 app.listen(port, ()=>{
     console.log(`App running on http://localhost:3001`)
