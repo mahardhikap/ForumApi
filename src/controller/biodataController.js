@@ -10,7 +10,7 @@ const {getPorto} = require('../model/portoModel')
 const biodataController = {
   addBiodata: async (req, res) => {
     try {
-      const { fullname, about, twitter, facebook, instagram, linkedin, other } =
+      const { fullname, about, skill, twitter, facebook, instagram, linkedin, other } =
         req.body;
       const roles = req.payload.roles;
 
@@ -30,6 +30,7 @@ const biodataController = {
           id: existingBiodata.rows[0].id,
           fullname: fullname || existingBiodata.rows[0].fullname,
           about: about || existingBiodata.rows[0].about,
+          skill: skill || existingBiodata.rows[0].skill,
           twitter: twitter || existingBiodata.rows[0].twitter,
           facebook: facebook || existingBiodata.rows[0].facebook,
           instagram: instagram || existingBiodata.rows[0].instagram,
@@ -74,6 +75,7 @@ const biodataController = {
         const newBiodata = {
           fullname,
           about,
+          skill,
           twitter,
           facebook,
           instagram,

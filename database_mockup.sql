@@ -34,6 +34,7 @@ CREATE TABLE
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         fullname VARCHAR,
         about TEXT,
+        skill TEXT,
         photo VARCHAR,
         photo_id VARCHAR,
         twitter VARCHAR,

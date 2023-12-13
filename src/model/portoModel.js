@@ -1,13 +1,5 @@
 const pool = require('../config/db');
 
-// porto (
-//     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-//     title VARCHAR,
-//     about TEXT,
-//     photo VARCHAR,
-//     photo_id VARCHAR
-// );
-
 const postPorto = async (data) => {
     return new Promise((resolve, reject) => {
       console.log('Model: add portfolio', data);

@@ -1,6 +1,7 @@
 const {
     postPorto,
     getPortoById,
+    getPorto,
     putPorto,
     delPortoById
   } = require('../model/portoModel');
@@ -45,6 +46,27 @@ const {
             .status(500)
             .json({ status: 500, message: 'Post portfolio failed!' });
         }
+    },
+    getAllPorto: async (req, res) => {
+      try {
+        const result = await getPorto();
+        if (result.rowCount > 0) {
+          return res.status(200).json({
+            status: 200,
+            message: 'Get portfolio success!',
+            data: result.rows
+          });
+        } else {
+          return res
+            .status(404)
+            .json({ status: 404, message: 'Portfolio not found!' });
+        }
+      } catch (error) {
+        console.error('Error when get portfolio', error.message);
+        return res
+          .status(500)
+          .json({ status: 500, message: 'Get portfolio failed!' });
+      }
     },
     editPorto: async (req, res) => {
         try {
