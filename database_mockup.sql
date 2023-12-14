@@ -49,6 +49,7 @@ CREATE TABLE
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         title VARCHAR,
         about TEXT,
+        stack TEXT,
         photo VARCHAR,
         photo_id VARCHAR
     );

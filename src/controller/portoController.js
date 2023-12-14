@@ -10,7 +10,7 @@ const {
   const portoController = {
     addPorto: async (req, res) => {
         try {
-            const { title, about } = req.body
+            const { title, about, stack } = req.body
             const roles = req.payload.roles
             if(roles !== 'admin'){
               return res.status(403).json({status:403, message:'You are not allowed to edit this field!'})
@@ -18,7 +18,8 @@ const {
 
             let post = {
               title: title,
-              about: about
+              about: about,
+              stack: stack
             }
 
             if (req.file) {
@@ -68,10 +69,35 @@ const {
           .json({ status: 500, message: 'Get portfolio failed!' });
       }
     },
+    getPortoId: async (req, res) => {
+      try {
+        const { id } = req.params;
+        const result = await getPortoById(id);
+        // console.log('cek hasil RESULT')
+        // return console.log(result)
+
+        if (result.rows[0]) {
+          return res.status(200).json({
+            status: 200,
+            message: 'Get portfolio by id success!',
+            data: result.rows[0],
+          });
+        } else {
+          return res
+            .status(404)
+            .json({ status: 404, message: 'Portfolio not found!' });
+        }
+      } catch (error) {
+        console.error('Error when get portfolio by id', error.message);
+        return res
+          .status(500)
+          .json({ status: 500, message: 'Get portfolio by id failed!' });
+      }
+    },
     editPorto: async (req, res) => {
         try {
           const { id } = req.params;
-          const { title, about } = req.body;
+          const { title, about, stack } = req.body;
     
           const data = await getPortoById(id);
           if (data.rowCount === 0) {
@@ -91,7 +117,8 @@ const {
           let post = {
             id: id,
             title: title || data.rows[0].title,
-            about: about || data.rows[0].about
+            about: about || data.rows[0].about,
+            stack: stack || data.rows[0].stack
           };
     
           if (result_up) {

@@ -3,9 +3,9 @@ const pool = require('../config/db');
 const postPorto = async (data) => {
     return new Promise((resolve, reject) => {
       console.log('Model: add portfolio', data);
-      const { title, about, photo, photo_id } = data;
+      const { title, about, stack, photo, photo_id } = data;
       pool.query(
-        `INSERT INTO porto (title, about, photo, photo_id) VALUES ('${title}', '${about}', '${photo}', '${photo_id}') RETURNING *`,
+        `INSERT INTO porto (title, about, stack, photo, photo_id) VALUES ('${title}', '${about}', '${stack}', '${photo}', '${photo_id}') RETURNING *`,
         (err, results) => {
           if (!err) {
             resolve(results);
@@ -51,9 +51,9 @@ const postPorto = async (data) => {
   const putPorto = async (data) => {
     return new Promise((resolve, reject) => {
       console.log('Model: edit portfolio', data);
-      const { title, about, photo, photo_id, id } = data;
+      const { title, about, stack, photo, photo_id, id } = data;
       pool.query(
-        `UPDATE porto SET title = '${title}', about = '${about}', photo = '${photo}', photo_id = '${photo_id}' WHERE id = '${id}' RETURNING *`,
+        `UPDATE porto SET title = '${title}', about = '${about}', stack = '${stack}', photo = '${photo}', photo_id = '${photo_id}' WHERE id = '${id}' RETURNING *`,
         (err, results) => {
           if (!err) {
             resolve(results);
